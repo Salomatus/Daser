@@ -19,11 +19,11 @@ class CreationMixin:
 
 
 class Category:
-    """Класс для категорий"""
+    """класс для категорий"""
 
     name: str
     description: str
-    __goods: list  # приватный атрибут
+    __goods: list  # приватный атрибуд
 
     # общее количество категорий и общее количество уникальных продуктов
     number_of_categories = 0
@@ -39,7 +39,7 @@ class Category:
         Category.number_of_unique_products += 1
 
     def add_product(self, product):
-        """Метод для добавления товара в список товаров"""
+        """метод для добавления товара в список товаров"""
         if isinstance(product, BaseProduct):
             self.__goods.append(product)
         else:
@@ -68,7 +68,7 @@ class Category:
 
 
 class Product(BaseProduct, CreationMixin):
-    """Класс для продуктов"""
+    """класс для продуктов"""
 
     name: str
     description: str
@@ -102,12 +102,12 @@ class Product(BaseProduct, CreationMixin):
 
     @property
     def price(self):
-        """Геттер для цены"""
+        """Геттер для цена"""
         return self.__price
 
     @price.setter
     def price(self, new_price):
-        """Сеттер для цены"""
+        """Сеттер для цена"""
         if new_price <= 0:
             print("ценна введена некорректно")
         elif new_price < self.__price:
